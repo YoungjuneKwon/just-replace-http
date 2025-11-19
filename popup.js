@@ -200,7 +200,9 @@ class PopupController {
 
   notifyBackgroundUpdate() {
     // Notify background script to update rules
-    chrome.runtime.sendMessage({ action: 'updatePatterns', patterns: this.patterns });
+    if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
+      chrome.runtime.sendMessage({ action: 'updatePatterns', patterns: this.patterns });
+    }
   }
 }
 
