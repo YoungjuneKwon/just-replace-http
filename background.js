@@ -122,7 +122,7 @@ async function updateDeclarativeNetRequestRules() {
 
     console.log(`Updated declarativeNetRequest rules: ${newRules.length} rules added`);
   } catch (error) {
-    console.error('Error updating declarativeNetRequest rules:', error);
+    console.log('Error updating declarativeNetRequest rules:', error);
   }
 }
 

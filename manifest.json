@@ -4,9 +4,7 @@
   "version": "1.0.0",
   "description": "Replace text patterns in HTTP requests",
   "permissions": [
-    "declarativeNetRequest",
-    "declarativeNetRequestWithHostAccess",
-    "storage"
+    "declarativeNetRequest"
   ],
   "host_permissions": [
     "<all_urls>"
