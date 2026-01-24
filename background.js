@@ -59,6 +59,22 @@ function getAllPatterns(db) {
   });
 }
 
+// Update badge to show active status
+function updateBadge() {
+  const enabledPatterns = patterns.filter(p => p.enabled);
+  
+  if (enabledPatterns.length > 0) {
+    // Show badge with count of enabled patterns
+    chrome.action.setBadgeText({ text: enabledPatterns.length.toString() });
+    chrome.action.setBadgeBackgroundColor({ color: '#4CAF50' }); // Green color
+    chrome.action.setTitle({ title: `Just Replace HTTP - ${enabledPatterns.length}개 패턴 활성화 중` });
+  } else {
+    // Clear badge when no patterns are enabled
+    chrome.action.setBadgeText({ text: '' });
+    chrome.action.setTitle({ title: 'Just Replace HTTP' });
+  }
+}
+
 // Update declarativeNetRequest rules
 async function updateDeclarativeNetRequestRules() {
   try {
@@ -77,6 +93,7 @@ async function updateDeclarativeNetRequestRules() {
     
     if (enabledPatterns.length === 0) {
       console.log('No enabled patterns to apply');
+      updateBadge(); // Update badge even when no patterns
       return;
     }
 
@@ -121,6 +138,9 @@ async function updateDeclarativeNetRequestRules() {
     });
 
     console.log(`Updated declarativeNetRequest rules: ${newRules.length} rules added`);
+    
+    // Update badge to show active status
+    updateBadge();
   } catch (error) {
     console.log('Error updating declarativeNetRequest rules:', error);
   }
