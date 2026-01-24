@@ -95,7 +95,7 @@ async function updateDeclarativeNetRequestRules() {
     
     if (enabledPatterns.length === 0) {
       console.log('No enabled patterns to apply');
-      updateBadge(); // Update badge even when no patterns
+      updateBadge();
       return;
     }
 
@@ -141,7 +141,6 @@ async function updateDeclarativeNetRequestRules() {
 
     console.log(`Updated declarativeNetRequest rules: ${newRules.length} rules added`);
     
-    // Update badge to show active status
     updateBadge();
   } catch (error) {
     console.log('Error updating declarativeNetRequest rules:', error);
