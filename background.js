@@ -26,6 +26,8 @@ async function loadPatternsAndUpdateRules() {
     updateDeclarativeNetRequestRules();
   } catch (error) {
     console.error('Error loading patterns:', error);
+    // Update badge even on error to reflect actual state
+    updateBadge();
   }
 }
 
@@ -143,6 +145,8 @@ async function updateDeclarativeNetRequestRules() {
     updateBadge();
   } catch (error) {
     console.log('Error updating declarativeNetRequest rules:', error);
+    // Update badge even on error to reflect current state
+    updateBadge();
   }
 }
 
