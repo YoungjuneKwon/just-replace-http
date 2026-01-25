@@ -1,10 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Just Replace HTTP",
-  "version": "1.0.0",
-  "description": "Replace text patterns in HTTP requests",
+  "version": "1.1.0",
+  "description": "Replace text patterns in HTTP requests with naming, copy, import/export features",
   "permissions": [
-    "declarativeNetRequest"
+    "declarativeNetRequest",
+    "storage"
   ],
   "host_permissions": [
     "<all_urls>"

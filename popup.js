@@ -21,6 +21,7 @@ class PatternDB {
         if (!db.objectStoreNames.contains(this.storeName)) {
           const objectStore = db.createObjectStore(this.storeName, { keyPath: 'id', autoIncrement: true });
           objectStore.createIndex('enabled', 'enabled', { unique: false });
+          objectStore.createIndex('name', 'name', { unique: false });
         }
       };
     });
@@ -86,12 +87,18 @@ class PopupController {
 
   attachEventListeners() {
     document.getElementById('addPattern').addEventListener('click', () => this.addPattern());
+    document.getElementById('exportBtn').addEventListener('click', () => this.exportPatterns());
+    document.getElementById('importBtn').addEventListener('click', () => this.importPatterns());
+    document.getElementById('importFile').addEventListener('change', (e) => this.handleImportFile(e));
     
     // Allow Enter key to add pattern
     document.getElementById('originPattern').addEventListener('keypress', (e) => {
       if (e.key === 'Enter') this.addPattern();
     });
     document.getElementById('targetPattern').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') this.addPattern();
+    });
+    document.getElementById('patternName').addEventListener('keypress', (e) => {
       if (e.key === 'Enter') this.addPattern();
     });
   }
@@ -122,10 +129,14 @@ class PopupController {
                data-id="${pattern.id}" 
                ${pattern.enabled ? 'checked' : ''}>
         <div class="pattern-content">
-          <span class="pattern-origin">${this.escapeHtml(pattern.origin)}</span>
-          <span class="pattern-arrow">=&gt;</span>
-          <span class="pattern-target">${this.escapeHtml(pattern.target)}</span>
+          ${pattern.name ? `<div class="pattern-name">${this.escapeHtml(pattern.name)}</div>` : ''}
+          <div class="pattern-row">
+            <span class="pattern-origin">${this.escapeHtml(pattern.origin)}</span>
+            <span class="pattern-arrow">=&gt;</span>
+            <span class="pattern-target">${this.escapeHtml(pattern.target)}</span>
+          </div>
         </div>
+        <button class="copy-btn" data-id="${pattern.id}">복사</button>
         <button class="delete-btn" data-id="${pattern.id}">삭제</button>
       </div>
     `).join('');
@@ -133,6 +144,10 @@ class PopupController {
     // Attach event listeners to pattern items
     patternsList.querySelectorAll('.pattern-toggle').forEach(checkbox => {
       checkbox.addEventListener('change', (e) => this.togglePattern(parseInt(e.target.dataset.id)));
+    });
+
+    patternsList.querySelectorAll('.copy-btn').forEach(button => {
+      button.addEventListener('click', (e) => this.copyPattern(parseInt(e.target.dataset.id)));
     });
 
     patternsList.querySelectorAll('.delete-btn').forEach(button => {
@@ -147,9 +162,11 @@ class PopupController {
   }
 
   async addPattern() {
+    const nameInput = document.getElementById('patternName');
     const originInput = document.getElementById('originPattern');
     const targetInput = document.getElementById('targetPattern');
 
+    const name = nameInput.value.trim();
     const origin = originInput.value.trim();
     const target = targetInput.value.trim();
 
@@ -167,6 +184,7 @@ class PopupController {
     }
 
     const pattern = {
+      name: name || null,
       origin,
       target,
       enabled: true,
@@ -177,6 +195,7 @@ class PopupController {
     await this.loadPatterns();
 
     // Clear inputs
+    nameInput.value = '';
     originInput.value = '';
     targetInput.value = '';
     originInput.focus();
@@ -196,6 +215,92 @@ class PopupController {
 
     await this.db.deletePattern(id);
     await this.loadPatterns();
+  }
+
+  async copyPattern(id) {
+    const pattern = this.patterns.find(p => p.id === id);
+    if (!pattern) return;
+
+    // Populate input fields with pattern data
+    document.getElementById('patternName').value = pattern.name || '';
+    document.getElementById('originPattern').value = pattern.origin;
+    document.getElementById('targetPattern').value = pattern.target;
+    
+    // Focus on the name field for easy editing
+    document.getElementById('patternName').focus();
+  }
+
+  async exportPatterns() {
+    if (this.patterns.length === 0) {
+      alert('내보낼 패턴이 없습니다.');
+      return;
+    }
+
+    const exportData = {
+      version: '1.0',
+      exportedAt: new Date().toISOString(),
+      patterns: this.patterns.map(({ id, ...pattern }) => pattern)
+    };
+
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `just-replace-http-patterns-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  importPatterns() {
+    document.getElementById('importFile').click();
+  }
+
+  async handleImportFile(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    try {
+      const text = await file.text();
+      const importData = JSON.parse(text);
+
+      if (!importData.patterns || !Array.isArray(importData.patterns)) {
+        throw new Error('유효하지 않은 파일 형식입니다.');
+      }
+
+      let importedCount = 0;
+      for (const pattern of importData.patterns) {
+        if (pattern.origin && pattern.target) {
+          // Validate regex
+          try {
+            new RegExp(pattern.origin);
+            
+            const newPattern = {
+              name: pattern.name || null,
+              origin: pattern.origin,
+              target: pattern.target,
+              enabled: pattern.enabled !== undefined ? pattern.enabled : true,
+              createdAt: new Date().toISOString()
+            };
+
+            await this.db.addPattern(newPattern);
+            importedCount++;
+          } catch (e) {
+            console.warn('Invalid regex pattern skipped:', pattern.origin, e.message);
+          }
+        }
+      }
+
+      await this.loadPatterns();
+      alert(`${importedCount}개의 패턴을 성공적으로 가져왔습니다.`);
+      
+      // Clear file input
+      event.target.value = '';
+    } catch (error) {
+      alert('파일 가져오기 실패: ' + error.message);
+      event.target.value = '';
+    }
   }
 
   notifyBackgroundUpdate() {

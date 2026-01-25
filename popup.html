@@ -13,6 +13,9 @@
     <div class="add-pattern-section">
       <h2>새 패턴 추가</h2>
       <div class="input-group">
+        <input type="text" id="patternName" placeholder="패턴 이름 (선택사항)">
+      </div>
+      <div class="input-group">
         <input type="text" id="originPattern" placeholder="원본 패턴 (정규식)">
         <span class="arrow">=&gt;</span>
         <input type="text" id="targetPattern" placeholder="대체 문자열 ($1 사용 가능)">
@@ -21,13 +24,21 @@
     </div>
 
     <div class="patterns-section">
-      <h2>패턴 목록</h2>
+      <div class="section-header">
+        <h2>패턴 목록</h2>
+        <div class="import-export-buttons">
+          <button id="importBtn" class="import-export-btn">가져오기</button>
+          <button id="exportBtn" class="import-export-btn">내보내기</button>
+        </div>
+      </div>
       <div id="patternsList" class="patterns-list"></div>
     </div>
 
     <div class="no-patterns" id="noPatterns" style="display: none;">
       패턴이 없습니다. 새 패턴을 추가해주세요.
     </div>
+    
+    <input type="file" id="importFile" accept=".json" style="display: none;">
   </div>
 
   <script src="popup.js"></script>
