@@ -1,0 +1,85 @@
+{
+  "extensionName": {
+    "message": "Just Replace HTTP"
+  },
+  "extensionDescription": {
+    "message": "Replace text patterns in HTTP requests with naming, copy, import/export features"
+  },
+  "addNewPattern": {
+    "message": "Add New Pattern"
+  },
+  "patternNamePlaceholder": {
+    "message": "Pattern name (optional)"
+  },
+  "originPatternPlaceholder": {
+    "message": "Source pattern (regex)"
+  },
+  "targetPatternPlaceholder": {
+    "message": "Replacement string ($1 available)"
+  },
+  "addButton": {
+    "message": "Add"
+  },
+  "patternList": {
+    "message": "Pattern List"
+  },
+  "importButton": {
+    "message": "Import"
+  },
+  "exportButton": {
+    "message": "Export"
+  },
+  "noPatternsMessage": {
+    "message": "No patterns. Please add a new pattern."
+  },
+  "copyButton": {
+    "message": "Copy"
+  },
+  "deleteButton": {
+    "message": "Delete"
+  },
+  "alertFillBothFields": {
+    "message": "Please fill in both the source pattern and replacement string."
+  },
+  "alertInvalidRegex": {
+    "message": "Invalid regular expression: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmDeletePattern": {
+    "message": "Are you sure you want to delete this pattern?"
+  },
+  "alertNoPatternsToExport": {
+    "message": "No patterns to export."
+  },
+  "errorInvalidFileFormat": {
+    "message": "Invalid file format."
+  },
+  "alertImportSuccess": {
+    "message": "Successfully imported $1 pattern(s).",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "alertImportFailed": {
+    "message": "Import failed: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "badgeTitleActive": {
+    "message": "Just Replace HTTP - $1 pattern(s) active",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  }
+}

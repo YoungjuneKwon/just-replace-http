@@ -1,0 +1,85 @@
+{
+  "extensionName": {
+    "message": "Just Replace HTTP"
+  },
+  "extensionDescription": {
+    "message": "استبدال أنماط النص في طلبات HTTP مع ميزات التسمية والنسخ والاستيراد/التصدير"
+  },
+  "addNewPattern": {
+    "message": "إضافة نمط جديد"
+  },
+  "patternNamePlaceholder": {
+    "message": "اسم النمط (اختياري)"
+  },
+  "originPatternPlaceholder": {
+    "message": "النمط المصدر (regex)"
+  },
+  "targetPatternPlaceholder": {
+    "message": "سلسلة الاستبدال (متاح $1)"
+  },
+  "addButton": {
+    "message": "إضافة"
+  },
+  "patternList": {
+    "message": "قائمة الأنماط"
+  },
+  "importButton": {
+    "message": "استيراد"
+  },
+  "exportButton": {
+    "message": "تصدير"
+  },
+  "noPatternsMessage": {
+    "message": "لا توجد أنماط. الرجاء إضافة نمط جديد."
+  },
+  "copyButton": {
+    "message": "نسخ"
+  },
+  "deleteButton": {
+    "message": "حذف"
+  },
+  "alertFillBothFields": {
+    "message": "الرجاء ملء كلٍّ من النمط المصدر وسلسلة الاستبدال."
+  },
+  "alertInvalidRegex": {
+    "message": "تعبير نمطي غير صالح: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmDeletePattern": {
+    "message": "هل أنت متأكد أنك تريد حذف هذا النمط؟"
+  },
+  "alertNoPatternsToExport": {
+    "message": "لا توجد أنماط للتصدير."
+  },
+  "errorInvalidFileFormat": {
+    "message": "تنسيق ملف غير صالح."
+  },
+  "alertImportSuccess": {
+    "message": "تم استيراد $1 نمط(أنماط) بنجاح.",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "alertImportFailed": {
+    "message": "فشل الاستيراد: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "badgeTitleActive": {
+    "message": "Just Replace HTTP - $1 نمط(أنماط) نشط(ة)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  }
+}

@@ -1,3 +1,24 @@
+// i18n helper: get message using chrome.i18n if available, fallback to key
+function i18n(key, substitutions) {
+  if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
+    const msg = chrome.i18n.getMessage(key, substitutions);
+    if (msg) return msg;
+  }
+  return key;
+}
+
+// Apply i18n translations to all data-i18n elements in the document
+function applyI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = i18n(key);
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    el.placeholder = i18n(key);
+  });
+}
+
 // IndexedDB helper class
 class PatternDB {
   constructor() {
@@ -80,6 +101,7 @@ class PopupController {
   }
 
   async init() {
+    applyI18n();
     await this.db.init();
     await this.loadPatterns();
     this.attachEventListeners();
@@ -136,8 +158,8 @@ class PopupController {
             <span class="pattern-target">${this.escapeHtml(pattern.target)}</span>
           </div>
         </div>
-        <button class="copy-btn" data-id="${pattern.id}">복사</button>
-        <button class="delete-btn" data-id="${pattern.id}">삭제</button>
+        <button class="copy-btn" data-id="${pattern.id}">${i18n('copyButton')}</button>
+        <button class="delete-btn" data-id="${pattern.id}">${i18n('deleteButton')}</button>
       </div>
     `).join('');
 
@@ -171,7 +193,7 @@ class PopupController {
     const target = targetInput.value.trim();
 
     if (!origin || !target) {
-      alert('원본 패턴과 대체 문자열을 모두 입력해주세요.');
+      alert(i18n('alertFillBothFields'));
       return;
     }
 
@@ -179,7 +201,7 @@ class PopupController {
     try {
       new RegExp(origin);
     } catch (e) {
-      alert('유효하지 않은 정규식입니다: ' + e.message);
+      alert(i18n('alertInvalidRegex', [e.message]));
       return;
     }
 
@@ -211,7 +233,7 @@ class PopupController {
   }
 
   async deletePattern(id) {
-    if (!confirm('이 패턴을 삭제하시겠습니까?')) return;
+    if (!confirm(i18n('confirmDeletePattern'))) return;
 
     await this.db.deletePattern(id);
     await this.loadPatterns();
@@ -232,7 +254,7 @@ class PopupController {
 
   async exportPatterns() {
     if (this.patterns.length === 0) {
-      alert('내보낼 패턴이 없습니다.');
+      alert(i18n('alertNoPatternsToExport'));
       return;
     }
 
@@ -266,7 +288,7 @@ class PopupController {
       const importData = JSON.parse(text);
 
       if (!importData.patterns || !Array.isArray(importData.patterns)) {
-        throw new Error('유효하지 않은 파일 형식입니다.');
+        throw new Error(i18n('errorInvalidFileFormat'));
       }
 
       let importedCount = 0;
@@ -293,12 +315,12 @@ class PopupController {
       }
 
       await this.loadPatterns();
-      alert(`${importedCount}개의 패턴을 성공적으로 가져왔습니다.`);
+      alert(i18n('alertImportSuccess', [String(importedCount)]));
       
       // Clear file input
       event.target.value = '';
     } catch (error) {
-      alert('파일 가져오기 실패: ' + error.message);
+      alert(i18n('alertImportFailed', [error.message]));
       event.target.value = '';
     }
   }

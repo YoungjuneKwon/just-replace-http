@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,31 +11,31 @@
     <h1>Just Replace HTTP</h1>
     
     <div class="add-pattern-section">
-      <h2>새 패턴 추가</h2>
+      <h2 data-i18n="addNewPattern">Add New Pattern</h2>
       <div class="input-group">
-        <input type="text" id="patternName" placeholder="패턴 이름 (선택사항)">
+        <input type="text" id="patternName" data-i18n-placeholder="patternNamePlaceholder" placeholder="Pattern name (optional)">
       </div>
       <div class="input-group">
-        <input type="text" id="originPattern" placeholder="원본 패턴 (정규식)">
+        <input type="text" id="originPattern" data-i18n-placeholder="originPatternPlaceholder" placeholder="Source pattern (regex)">
         <span class="arrow">=&gt;</span>
-        <input type="text" id="targetPattern" placeholder="대체 문자열 ($1 사용 가능)">
-        <button id="addPattern">추가</button>
+        <input type="text" id="targetPattern" data-i18n-placeholder="targetPatternPlaceholder" placeholder="Replacement string ($1 available)">
+        <button id="addPattern" data-i18n="addButton">Add</button>
       </div>
     </div>
 
     <div class="patterns-section">
       <div class="section-header">
-        <h2>패턴 목록</h2>
+        <h2 data-i18n="patternList">Pattern List</h2>
         <div class="import-export-buttons">
-          <button id="importBtn" class="import-export-btn">가져오기</button>
-          <button id="exportBtn" class="import-export-btn">내보내기</button>
+          <button id="importBtn" class="import-export-btn" data-i18n="importButton">Import</button>
+          <button id="exportBtn" class="import-export-btn" data-i18n="exportButton">Export</button>
         </div>
       </div>
       <div id="patternsList" class="patterns-list"></div>
     </div>
 
-    <div class="no-patterns" id="noPatterns" style="display: none;">
-      패턴이 없습니다. 새 패턴을 추가해주세요.
+    <div class="no-patterns" id="noPatterns" data-i18n="noPatternsMessage" style="display: none;">
+      No patterns. Please add a new pattern.
     </div>
     
     <input type="file" id="importFile" accept=".json" style="display: none;">
