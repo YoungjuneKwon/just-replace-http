@@ -1,124 +1,137 @@
 # Just Replace HTTP
 
-HTTP 요청 문자열 중 일부를 원하는 문자열로 대체해서 요청하는 크롬 확장 프로그램
+A Chrome extension that replaces parts of HTTP request strings with desired strings before sending the request.
 
-## 주요 기능
+## Key Features
 
-- **설정 화면 제공**: 패턴을 쉽게 관리할 수 있는 팝업 UI
-- **IndexedDB 저장**: 설정 내용을 브라우저의 IndexedDB에 안전하게 저장
-- **HTTP 요청 감시**: 모든 HTTP 요청을 감시하여 설정된 패턴에 따라 URL 변환
-- **정규식 지원**: 정규식 패턴 매칭과 그룹 참조($1, $2 등) 지원
-- **On/Off 토글**: 각 패턴을 개별적으로 활성화/비활성화 가능
-- **활성화 상태 표시**: 확장 프로그램 아이콘에 활성화된 패턴 개수를 배지로 표시하여 창을 열지 않아도 replace 처리 중임을 확인 가능
-- **패턴 이름 지정**: 패턴에 이름을 지정하여 쉽게 식별하고 관리 가능 (선택사항)
-- **복사 기능**: 기존 패턴을 클릭 한 번으로 입력 필드에 복사하여 수정 가능
-- **내보내기/가져오기**: 패턴 목록을 JSON 파일로 내보내거나 가져오기 가능
-- **무료**: Requestly의 replace 기능을 무료로 제공
+- **Settings UI**: A popup UI for easy pattern management
+- **IndexedDB Storage**: Safely stores settings in the browser's IndexedDB
+- **HTTP Request Monitoring**: Monitors all HTTP requests and transforms URLs according to configured patterns
+- **Regex Support**: Regex pattern matching and group references ($1, $2, etc.)
+- **On/Off Toggle**: Enable/disable each pattern individually
+- **Active Status Badge**: Displays the number of active patterns as a badge on the extension icon, so you can confirm replacement is active without opening the popup
+- **Pattern Naming**: Assign names to patterns for easy identification and management (optional)
+- **Copy Feature**: Copy an existing pattern to the input fields with one click for editing
+- **Export/Import**: Export or import the pattern list as a JSON file
+- **Free**: Provides Requestly-style replace functionality for free
+- **Multi-language Support**: UI language automatically adapts to your Chrome browser language (English, French, Spanish, Arabic, Chinese, Russian, Korean)
 
-## 설치 방법
+## Installation
 
-1. 이 저장소를 클론하거나 다운로드합니다
-2. Chrome 브라우저를 열고 `chrome://extensions/` 로 이동합니다
-3. 우측 상단의 "개발자 모드"를 활성화합니다
-4. "압축해제된 확장 프로그램을 로드합니다" 버튼을 클릭합니다
-5. 다운로드한 폴더를 선택합니다
+1. Clone or download this repository
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked"
+5. Select the downloaded folder
 
-## 사용 방법
+## How to Use
 
-### 패턴 추가
+### Adding a Pattern
 
-1. Chrome 도구 모음에서 확장 프로그램 아이콘을 클릭합니다
-2. "새 패턴 추가" 섹션에서:
-   - **패턴 이름**: 패턴을 식별할 이름을 입력합니다 (선택사항)
-   - **원본 패턴**: 정규식 패턴을 입력합니다 (예: `https://old-domain\.com/(.*)`)
-   - **대체 문자열**: 변경할 문자열을 입력합니다 (예: `https://new-domain.com/$1`)
-3. "추가" 버튼을 클릭합니다
+1. Click the extension icon in the Chrome toolbar
+2. In the "Add New Pattern" section:
+   - **Pattern Name**: Enter a name to identify the pattern (optional)
+   - **Source Pattern**: Enter a regex pattern (e.g. `https://old-domain\.com/(.*)`)
+   - **Replacement String**: Enter the replacement string (e.g. `https://new-domain.com/$1`)
+3. Click the "Add" button
 
-### 패턴 관리
+### Managing Patterns
 
-- **On/Off 토글**: 체크박스를 클릭하여 패턴을 활성화/비활성화합니다
-- **복사**: "복사" 버튼을 클릭하여 패턴을 입력 필드에 복사하고 수정할 수 있습니다
-- **패턴 삭제**: "삭제" 버튼을 클릭하여 패턴을 제거합니다
-- **내보내기**: "내보내기" 버튼을 클릭하여 모든 패턴을 JSON 파일로 저장합니다
-- **가져오기**: "가져오기" 버튼을 클릭하여 JSON 파일에서 패턴을 불러옵니다
-- **활성화 상태 확인**: 확장 프로그램 아이콘에 표시되는 녹색 배지 숫자로 현재 활성화된 패턴의 개수를 확인할 수 있습니다
+- **On/Off Toggle**: Click the checkbox to enable/disable a pattern
+- **Copy**: Click the "Copy" button to copy a pattern to the input fields for editing
+- **Delete Pattern**: Click the "Delete" button to remove a pattern
+- **Export**: Click the "Export" button to save all patterns as a JSON file
+- **Import**: Click the "Import" button to load patterns from a JSON file
+- **Check Active Status**: The green badge number on the extension icon shows the count of currently active patterns
 
-### 정규식 예제
+### Regex Examples
 
-#### 도메인 변경
+#### Domain Change
 ```
-원본 패턴: https://api\.example\.com/(.*)
-대체 문자열: https://api.newdomain.com/$1
-```
-
-#### 경로 변경
-```
-원본 패턴: https://example\.com/old-path/(.*)
-대체 문자열: https://example.com/new-path/$1
+Source pattern: https://api\.example\.com/(.*)
+Replacement string: https://api.newdomain.com/$1
 ```
 
-#### 쿼리 파라미터 변경
+#### Path Change
 ```
-원본 패턴: (https://example\.com/.*)\?old=(.*)
-대체 문자열: $1?new=$2
+Source pattern: https://example\.com/old-path/(.*)
+Replacement string: https://example.com/new-path/$1
 ```
 
-## 기술 스택
+#### Query Parameter Change
+```
+Source pattern: (https://example\.com/.*)\?old=(.*)
+Replacement string: $1?new=$2
+```
 
-- **Manifest V3**: 최신 Chrome Extension API 사용
-- **IndexedDB**: 패턴 데이터의 영구 저장
-- **declarativeNetRequest API**: 효율적인 HTTP 요청 수정
-- **Vanilla JavaScript**: 외부 라이브러리 의존성 없음
+## Tech Stack
 
-## 파일 구조
+- **Manifest V3**: Uses the latest Chrome Extension API
+- **IndexedDB**: Persistent storage for pattern data
+- **declarativeNetRequest API**: Efficient HTTP request modification
+- **Vanilla JavaScript**: No external library dependencies
+- **Chrome i18n API**: Multi-language support using Chrome's built-in internationalization
+
+## File Structure
 
 ```
 just-replace-http/
-├── manifest.json       # 확장 프로그램 설정
-├── popup.html          # 팝업 UI 구조
-├── popup.css           # 팝업 스타일
-├── popup.js            # 팝업 로직 및 IndexedDB 관리
-├── background.js       # 백그라운드 서비스 워커 (HTTP 요청 가로채기)
-├── icons/              # 확장 프로그램 아이콘
+├── manifest.json         # Extension configuration
+├── popup.html            # Popup UI structure
+├── popup.css             # Popup styles
+├── popup.js              # Popup logic and IndexedDB management
+├── background.js         # Background service worker (HTTP request interception)
+├── icons/                # Extension icons
 │   ├── icon16.png
 │   ├── icon48.png
 │   └── icon128.png
-└── README.md
+└── _locales/             # i18n message files
+    ├── en/messages.json  # English (default)
+    ├── fr/messages.json  # French
+    ├── es/messages.json  # Spanish
+    ├── ar/messages.json  # Arabic
+    ├── zh_CN/messages.json # Chinese (Simplified)
+    ├── ru/messages.json  # Russian
+    └── ko/messages.json  # Korean
 ```
 
-## 권한 설명
+## Permissions
 
-- **declarativeNetRequest**: HTTP 요청을 가로채고 수정하기 위해 필요
-- **declarativeNetRequestWithHostAccess**: 모든 호스트에 대한 요청 수정 권한
-- **storage**: 패턴 데이터를 IndexedDB에 저장하기 위해 필요
-- **host_permissions (all_urls)**: 모든 URL에 대한 요청을 처리하기 위해 필요
+- **declarativeNetRequest**: Required to intercept and modify HTTP requests
+- **declarativeNetRequestWithHostAccess**: Permission to modify requests for all hosts
+- **storage**: Required to store pattern data in IndexedDB
+- **host_permissions (all_urls)**: Required to handle requests for all URLs
 
-## 주의사항
+## Notes
 
-- 정규식 패턴은 유효한 JavaScript 정규식이어야 합니다
-- 잘못된 패턴은 추가되지 않으며 오류 메시지가 표시됩니다
-- 패턴 변경 사항은 즉시 적용됩니다
-- 너무 광범위한 패턴은 의도하지 않은 요청도 수정할 수 있으니 주의하세요
+- Regex patterns must be valid JavaScript regular expressions
+- Invalid patterns will not be added, and an error message will be displayed
+- Pattern changes take effect immediately
+- Be careful with overly broad patterns, as they may unintentionally modify requests
 
-## 버전 기록
+## Changelog
+
+### v1.2.0
+- 🌐 **Multi-language support**: UI automatically adapts to the browser language (English, French, Spanish, Arabic, Chinese, Russian, Korean)
+- 🔧 **i18n**: All UI messages are now managed via Chrome's i18n API
 
 ### v1.1.0 (2025-01-25)
-- ✨ **패턴 이름 지정**: 패턴에 이름을 지정하여 쉽게 식별하고 관리 가능 (선택사항)
-- ✨ **복사 기능**: 기존 패턴을 클릭 한 번으로 입력 필드에 복사하여 수정 가능
-- ✨ **내보내기/가져오기**: 패턴 목록을 JSON 파일로 내보내거나 가져오기 가능
-- 🔧 **UI 개선**: 패턴 목록 UI 개선 및 새로운 기능 버튼 추가
-- 🐛 **안정성**: IndexedDB 스키마 개선 및 안정성 향상
+- ✨ **Pattern Naming**: Assign names to patterns for easy identification and management (optional)
+- ✨ **Copy Feature**: Copy an existing pattern to input fields with one click
+- ✨ **Export/Import**: Export or import pattern list as a JSON file
+- 🔧 **UI Improvements**: Improved pattern list UI and new feature buttons
+- 🐛 **Stability**: Improved IndexedDB schema and stability
 
 ### v1.0.0
-- 🎉 초기 릴리스
-- HTTP 요청 문자열 대체 기능
-- 정규식 패턴 지원
-- On/Off 토글 기능
+- 🎉 Initial release
+- HTTP request string replacement
+- Regex pattern support
+- On/Off toggle
 
-## 라이선스
+## License
 
 MIT License
 
-## 기여
+## Contributing
 
-이슈와 풀 리퀘스트는 언제나 환영합니다!
+Issues and pull requests are always welcome!

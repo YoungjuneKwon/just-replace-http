@@ -1,0 +1,85 @@
+{
+  "extensionName": {
+    "message": "Just Replace HTTP"
+  },
+  "extensionDescription": {
+    "message": "Reemplaza patrones de texto en solicitudes HTTP con funciones de nombres, copia, importación/exportación"
+  },
+  "addNewPattern": {
+    "message": "Agregar nuevo patrón"
+  },
+  "patternNamePlaceholder": {
+    "message": "Nombre del patrón (opcional)"
+  },
+  "originPatternPlaceholder": {
+    "message": "Patrón de origen (regex)"
+  },
+  "targetPatternPlaceholder": {
+    "message": "Cadena de reemplazo ($1 disponible)"
+  },
+  "addButton": {
+    "message": "Agregar"
+  },
+  "patternList": {
+    "message": "Lista de patrones"
+  },
+  "importButton": {
+    "message": "Importar"
+  },
+  "exportButton": {
+    "message": "Exportar"
+  },
+  "noPatternsMessage": {
+    "message": "Sin patrones. Por favor, agregue un nuevo patrón."
+  },
+  "copyButton": {
+    "message": "Copiar"
+  },
+  "deleteButton": {
+    "message": "Eliminar"
+  },
+  "alertFillBothFields": {
+    "message": "Por favor, complete el patrón de origen y la cadena de reemplazo."
+  },
+  "alertInvalidRegex": {
+    "message": "Expresión regular no válida: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmDeletePattern": {
+    "message": "¿Está seguro de que desea eliminar este patrón?"
+  },
+  "alertNoPatternsToExport": {
+    "message": "No hay patrones para exportar."
+  },
+  "errorInvalidFileFormat": {
+    "message": "Formato de archivo no válido."
+  },
+  "alertImportSuccess": {
+    "message": "Se importó(aron) $1 patrón(es) correctamente.",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "alertImportFailed": {
+    "message": "Error al importar: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "badgeTitleActive": {
+    "message": "Just Replace HTTP - $1 patrón(es) activo(s)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  }
+}

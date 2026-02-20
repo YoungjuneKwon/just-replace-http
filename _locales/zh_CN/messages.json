@@ -1,0 +1,85 @@
+{
+  "extensionName": {
+    "message": "Just Replace HTTP"
+  },
+  "extensionDescription": {
+    "message": "替换HTTP请求中的文本模式，支持命名、复制、导入/导出功能"
+  },
+  "addNewPattern": {
+    "message": "添加新模式"
+  },
+  "patternNamePlaceholder": {
+    "message": "模式名称（可选）"
+  },
+  "originPatternPlaceholder": {
+    "message": "源模式（正则表达式）"
+  },
+  "targetPatternPlaceholder": {
+    "message": "替换字符串（可使用 $1）"
+  },
+  "addButton": {
+    "message": "添加"
+  },
+  "patternList": {
+    "message": "模式列表"
+  },
+  "importButton": {
+    "message": "导入"
+  },
+  "exportButton": {
+    "message": "导出"
+  },
+  "noPatternsMessage": {
+    "message": "暂无模式，请添加新模式。"
+  },
+  "copyButton": {
+    "message": "复制"
+  },
+  "deleteButton": {
+    "message": "删除"
+  },
+  "alertFillBothFields": {
+    "message": "请填写源模式和替换字符串。"
+  },
+  "alertInvalidRegex": {
+    "message": "无效的正则表达式：$1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmDeletePattern": {
+    "message": "确定要删除此模式吗？"
+  },
+  "alertNoPatternsToExport": {
+    "message": "没有可导出的模式。"
+  },
+  "errorInvalidFileFormat": {
+    "message": "无效的文件格式。"
+  },
+  "alertImportSuccess": {
+    "message": "成功导入 $1 个模式。",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "alertImportFailed": {
+    "message": "导入失败：$1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "badgeTitleActive": {
+    "message": "Just Replace HTTP - $1 个模式已激活",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  }
+}

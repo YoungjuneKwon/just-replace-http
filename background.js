@@ -69,7 +69,7 @@ function updateBadge() {
     // Show badge with count of enabled patterns
     chrome.action.setBadgeText({ text: enabledPatterns.length.toString() });
     chrome.action.setBadgeBackgroundColor({ color: '#4CAF50' }); // Green color
-    chrome.action.setTitle({ title: `Just Replace HTTP - ${enabledPatterns.length}개 패턴 활성화 중` });
+    chrome.action.setTitle({ title: chrome.i18n.getMessage('badgeTitleActive', [enabledPatterns.length.toString()]) });
   } else {
     // Clear badge when no patterns are enabled
     chrome.action.setBadgeText({ text: '' });

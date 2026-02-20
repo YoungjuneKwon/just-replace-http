@@ -1,0 +1,85 @@
+{
+  "extensionName": {
+    "message": "Just Replace HTTP"
+  },
+  "extensionDescription": {
+    "message": "Замена текстовых паттернов в HTTP-запросах с функциями именования, копирования, импорта/экспорта"
+  },
+  "addNewPattern": {
+    "message": "Добавить новый паттерн"
+  },
+  "patternNamePlaceholder": {
+    "message": "Название паттерна (необязательно)"
+  },
+  "originPatternPlaceholder": {
+    "message": "Исходный паттерн (регулярное выражение)"
+  },
+  "targetPatternPlaceholder": {
+    "message": "Строка замены (доступно $1)"
+  },
+  "addButton": {
+    "message": "Добавить"
+  },
+  "patternList": {
+    "message": "Список паттернов"
+  },
+  "importButton": {
+    "message": "Импорт"
+  },
+  "exportButton": {
+    "message": "Экспорт"
+  },
+  "noPatternsMessage": {
+    "message": "Паттернов нет. Добавьте новый паттерн."
+  },
+  "copyButton": {
+    "message": "Копировать"
+  },
+  "deleteButton": {
+    "message": "Удалить"
+  },
+  "alertFillBothFields": {
+    "message": "Заполните исходный паттерн и строку замены."
+  },
+  "alertInvalidRegex": {
+    "message": "Неверное регулярное выражение: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmDeletePattern": {
+    "message": "Вы уверены, что хотите удалить этот паттерн?"
+  },
+  "alertNoPatternsToExport": {
+    "message": "Нет паттернов для экспорта."
+  },
+  "errorInvalidFileFormat": {
+    "message": "Неверный формат файла."
+  },
+  "alertImportSuccess": {
+    "message": "Успешно импортировано паттернов: $1.",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "alertImportFailed": {
+    "message": "Ошибка импорта: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "badgeTitleActive": {
+    "message": "Just Replace HTTP - активно паттернов: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  }
+}

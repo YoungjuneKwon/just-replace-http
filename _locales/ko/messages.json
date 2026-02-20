@@ -1,0 +1,85 @@
+{
+  "extensionName": {
+    "message": "Just Replace HTTP"
+  },
+  "extensionDescription": {
+    "message": "패턴 이름 지정, 복사, 가져오기/내보내기 기능을 갖춘 HTTP 요청 텍스트 패턴 교체 확장 프로그램"
+  },
+  "addNewPattern": {
+    "message": "새 패턴 추가"
+  },
+  "patternNamePlaceholder": {
+    "message": "패턴 이름 (선택사항)"
+  },
+  "originPatternPlaceholder": {
+    "message": "원본 패턴 (정규식)"
+  },
+  "targetPatternPlaceholder": {
+    "message": "대체 문자열 ($1 사용 가능)"
+  },
+  "addButton": {
+    "message": "추가"
+  },
+  "patternList": {
+    "message": "패턴 목록"
+  },
+  "importButton": {
+    "message": "가져오기"
+  },
+  "exportButton": {
+    "message": "내보내기"
+  },
+  "noPatternsMessage": {
+    "message": "패턴이 없습니다. 새 패턴을 추가해주세요."
+  },
+  "copyButton": {
+    "message": "복사"
+  },
+  "deleteButton": {
+    "message": "삭제"
+  },
+  "alertFillBothFields": {
+    "message": "원본 패턴과 대체 문자열을 모두 입력해주세요."
+  },
+  "alertInvalidRegex": {
+    "message": "유효하지 않은 정규식입니다: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmDeletePattern": {
+    "message": "이 패턴을 삭제하시겠습니까?"
+  },
+  "alertNoPatternsToExport": {
+    "message": "내보낼 패턴이 없습니다."
+  },
+  "errorInvalidFileFormat": {
+    "message": "유효하지 않은 파일 형식입니다."
+  },
+  "alertImportSuccess": {
+    "message": "$1개의 패턴을 성공적으로 가져왔습니다.",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "alertImportFailed": {
+    "message": "파일 가져오기 실패: $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "badgeTitleActive": {
+    "message": "Just Replace HTTP - $1개 패턴 활성화 중",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  }
+}

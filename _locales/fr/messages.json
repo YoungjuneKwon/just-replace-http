@@ -1,0 +1,85 @@
+{
+  "extensionName": {
+    "message": "Just Replace HTTP"
+  },
+  "extensionDescription": {
+    "message": "Remplacez les modèles de texte dans les requêtes HTTP avec des fonctionnalités de nommage, copie, import/export"
+  },
+  "addNewPattern": {
+    "message": "Ajouter un nouveau modèle"
+  },
+  "patternNamePlaceholder": {
+    "message": "Nom du modèle (facultatif)"
+  },
+  "originPatternPlaceholder": {
+    "message": "Modèle source (regex)"
+  },
+  "targetPatternPlaceholder": {
+    "message": "Chaîne de remplacement ($1 disponible)"
+  },
+  "addButton": {
+    "message": "Ajouter"
+  },
+  "patternList": {
+    "message": "Liste des modèles"
+  },
+  "importButton": {
+    "message": "Importer"
+  },
+  "exportButton": {
+    "message": "Exporter"
+  },
+  "noPatternsMessage": {
+    "message": "Aucun modèle. Veuillez ajouter un nouveau modèle."
+  },
+  "copyButton": {
+    "message": "Copier"
+  },
+  "deleteButton": {
+    "message": "Supprimer"
+  },
+  "alertFillBothFields": {
+    "message": "Veuillez remplir le modèle source et la chaîne de remplacement."
+  },
+  "alertInvalidRegex": {
+    "message": "Expression régulière invalide : $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirmDeletePattern": {
+    "message": "Voulez-vous vraiment supprimer ce modèle ?"
+  },
+  "alertNoPatternsToExport": {
+    "message": "Aucun modèle à exporter."
+  },
+  "errorInvalidFileFormat": {
+    "message": "Format de fichier invalide."
+  },
+  "alertImportSuccess": {
+    "message": "$1 modèle(s) importé(s) avec succès.",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "alertImportFailed": {
+    "message": "Échec de l'importation : $1",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "badgeTitleActive": {
+    "message": "Just Replace HTTP - $1 modèle(s) actif(s)",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  }
+}
