@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Just Replace HTTP"
+    "message": "Just Replace HTTP — إعادة توجيه وإعادة كتابة الروابط (Regex)"
   },
   "extensionDescription": {
-    "message": "استبدال أنماط النص في طلبات HTTP مع ميزات التسمية والنسخ والاستيراد/التصدير"
+    "message": "أعد توجيه عناوين URL لطلبات HTTP وأعد كتابتها بقواعد regex. فعّل أو عطّل كل قاعدة. مجاني، بدون حساب، وبدون إعلانات."
   },
   "addNewPattern": {
     "message": "إضافة نمط جديد"

@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Just Replace HTTP"
+    "message": "Just Replace HTTP — Redirigir y reescribir URLs (Regex)"
   },
   "extensionDescription": {
-    "message": "Reemplaza patrones de texto en solicitudes HTTP con funciones de nombres, copia, importación/exportación"
+    "message": "Redirige y reescribe URLs de solicitudes HTTP con reglas regex. Activa o desactiva cada regla. Gratis, sin cuenta y sin anuncios."
   },
   "addNewPattern": {
     "message": "Agregar nuevo patrón"

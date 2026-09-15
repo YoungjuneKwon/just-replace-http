@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Just Replace HTTP"
+    "message": "Just Replace HTTP — Перенаправление и замена URL (Regex)"
   },
   "extensionDescription": {
-    "message": "Замена текстовых паттернов в HTTP-запросах с функциями именования, копирования, импорта/экспорта"
+    "message": "Перенаправляйте и переписывайте URL HTTP-запросов по regex-правилам. Включайте и выключайте правила. Бесплатно, без рекламы."
   },
   "addNewPattern": {
     "message": "Добавить новый паттерн"

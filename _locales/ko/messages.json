@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Just Replace HTTP"
+    "message": "Just Replace HTTP — URL 리디렉션·치환 (정규식)"
   },
   "extensionDescription": {
-    "message": "패턴 이름 지정, 복사, 가져오기/내보내기 기능을 갖춘 HTTP 요청 텍스트 패턴 교체 확장 프로그램"
+    "message": "정규식 규칙으로 HTTP 요청 URL을 리디렉션·치환합니다. 원하는 주소로 매핑하고 규칙을 켜고 끄세요. 무료, 계정 불필요, 광고 없음."
   },
   "addNewPattern": {
     "message": "새 패턴 추가"

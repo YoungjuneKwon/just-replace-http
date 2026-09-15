@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Just Replace HTTP"
+    "message": "Just Replace HTTP — Rediriger et réécrire les URL (Regex)"
   },
   "extensionDescription": {
-    "message": "Remplacez les modèles de texte dans les requêtes HTTP avec des fonctionnalités de nommage, copie, import/export"
+    "message": "Redirigez et réécrivez les URL des requêtes HTTP avec des règles regex. Activez ou désactivez chaque règle. Gratuit, sans pub."
   },
   "addNewPattern": {
     "message": "Ajouter un nouveau modèle"

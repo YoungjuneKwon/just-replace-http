@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Just Replace HTTP"
+    "message": "Just Replace HTTP — Redirect & Rewrite URLs (Regex)"
   },
   "extensionDescription": {
-    "message": "Replace text patterns in HTTP requests with naming, copy, import/export features"
+    "message": "Redirect and rewrite HTTP request URLs with regex rules. Map any URL to another, toggle rules on and off. Free, no account, no ads."
   },
   "addNewPattern": {
     "message": "Add New Pattern"

@@ -1,6 +1,18 @@
 # Just Replace HTTP
 
-A Chrome extension that replaces parts of HTTP request strings with desired strings before sending the request.
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fbjhclldebdeldkbcadnegkdjbdpdfag?style=flat-square&logo=googlechrome&logoColor=white&label=Chrome%20Web%20Store&color=4285F4)](https://chromewebstore.google.com/detail/just-replace-http/fbjhclldebdeldkbcadnegkdjbdpdfag)
+[![Users](https://img.shields.io/chrome-web-store/users/fbjhclldebdeldkbcadnegkdjbdpdfag?style=flat-square&color=4285F4)](https://chromewebstore.google.com/detail/just-replace-http/fbjhclldebdeldkbcadnegkdjbdpdfag)
+[![Rating](https://img.shields.io/chrome-web-store/rating/fbjhclldebdeldkbcadnegkdjbdpdfag?style=flat-square&color=4285F4)](https://chromewebstore.google.com/detail/just-replace-http/fbjhclldebdeldkbcadnegkdjbdpdfag)
+
+**Redirect and rewrite HTTP request URLs with regex rules.** Map any URL to another before the
+request is sent — swap an API host for a local one, point a CDN asset at a staging bucket, or
+rewrite a query string. Rules are plain regex with group references, and each one can be toggled
+on and off.
+
+### ▶ [Install from the Chrome Web Store](https://chromewebstore.google.com/detail/just-replace-http/fbjhclldebdeldkbcadnegkdjbdpdfag)
+
+Free, no account, no ads. Built on Manifest V3 `declarativeNetRequest` — rules run in the browser,
+nothing is sent anywhere.
 
 ## Key Features
 
@@ -13,16 +25,23 @@ A Chrome extension that replaces parts of HTTP request strings with desired stri
 - **Pattern Naming**: Assign names to patterns for easy identification and management (optional)
 - **Copy Feature**: Copy an existing pattern to the input fields with one click for editing
 - **Export/Import**: Export or import the pattern list as a JSON file
-- **Free**: Provides Requestly-style replace functionality for free
+- **Free**: The URL-redirect feature that paid HTTP interceptors charge for, at no cost and with no account
 - **Multi-language Support**: UI language automatically adapts to your Chrome browser language (English, French, Spanish, Arabic, Chinese, Russian, Korean)
 
 ## Installation
+
+**[Install from the Chrome Web Store](https://chromewebstore.google.com/detail/just-replace-http/fbjhclldebdeldkbcadnegkdjbdpdfag)** — one click, always up to date.
+
+<details>
+<summary>Or load from source (for development)</summary>
 
 1. Clone or download this repository
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable "Developer mode" in the top right
 4. Click "Load unpacked"
 5. Select the downloaded folder
+
+</details>
 
 ## How to Use
 

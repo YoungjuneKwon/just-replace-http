@@ -1,9 +1,9 @@
 {
   "extensionName": {
-    "message": "Just Replace HTTP"
+    "message": "Just Replace HTTP — 重定向与重写 URL（正则）"
   },
   "extensionDescription": {
-    "message": "替换HTTP请求中的文本模式，支持命名、复制、导入/导出功能"
+    "message": "使用正则表达式重定向和重写 HTTP 请求 URL。将任意 URL 映射到另一个地址，可逐条启用或停用规则。免费，无需账号，无广告。"
   },
   "addNewPattern": {
     "message": "添加新模式"
