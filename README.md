@@ -154,3 +154,7 @@ MIT License
 ## Contributing
 
 Issues and pull requests are always welcome!
+
+---
+
+Built and maintained by [Second Tiger](https://secondtiger.com), a one-person software label.
